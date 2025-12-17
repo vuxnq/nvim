@@ -4,33 +4,38 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- conciseness
-local opts = { noremap = true, silent = true }
+local map = function (keys, func, desc, mode)
+    local opts = { desc = desc, noremap = true, silent = true }
+    mode = mode or "n"
+    vim.keymap.set(mode, keys, func, opts)
+end
 
--- yeaaaa
-vim.keymap.set("n", "<C-s>", "<cmd>w <CR>", opts)
-vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
+-- general
+map("<C-s>", "<cmd>w <CR>", "Save", {"n", "i"})
+map("<Esc>", ":noh<CR>", "Clear highlights")
+map("<C-c>", ":%y+<CR>", "Copy everything")
 
-vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
+map("<leader>lw", "<cmd>set wrap!<CR>", "Toggle linewrap")
+map("<leader>ws", "<cmd>set list!<CR>", "Toggle whitespace")
 
--- zmrde necpi mi to do registeru
-vim.keymap.set("n", "x", '"_x', opts)
+map("x", '"_x', "Ignore register")
+map("<", "<gv", "Stay in indent mode", "v")
+map(">", ">gv", "Stay in indent mode", "v")
 
--- resize
-vim.keymap.set("n", "<Up>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<Down>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
-vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
+-- window management
+map("<Up>", ":resize +2<CR>", "Increase height")
+map("<Down>", ":resize -2<CR>", "Decrease height")
+map("<Left>", ":vertical resize -2<CR>", "Increase width")
+map("<Right>", ":vertical resize +2<CR>", "Decrease width")
 
--- buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts)
-vim.keymap.set("n", "<leader>n", "<cmd>enew<CR>", opts)
+-- buffer management
+map("<Tab>", ":bnext<CR>", "Next buffer")
+map("<S-Tab>", ":bprevious<CR>", "Previous buffer")
+map("<leader>n", "<cmd>enew<CR>", "New buffer")
+map("<leader>x", ":bdelete!<CR>", "Close buffer")
 
--- linewrap
-vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
-
--- stay in indent mode
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
+-- swap lines
+map("<A-j>", ":m .+1<CR>", "Move line down")
+map("<A-k>", ":m .-2<CR>", "Move line up")
+map("<A-j>", ":m '>+1<CR>gv", "Move lines down", "v")
+map("<A-k>", ":m '<-2<CR>gv", "Move lines up", "v")

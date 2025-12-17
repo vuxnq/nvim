@@ -4,6 +4,12 @@ return {
 
 	config = function()
 		vim.opt.termguicolors = true
-		require("bufferline").setup({})
+		require("bufferline").setup{
+            options = {
+                indicator = { style = "none", },
+                show_buffer_close_icons = false,
+                always_show_bufferline = false,
+            }
+        }
 	end,
 }

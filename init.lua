@@ -12,13 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	require("plugins.neotree"),
     require("plugins.colortheme"),
+    require("plugins.oil"),
 	require("plugins.bufferline"),
 	require("plugins.lualine"),
 	require("plugins.telescope"),
 	require("plugins.lsp"),
 	require("plugins.completion"),
 
-	{ "folke/which-key.nvim" },
+    require("plugins.misc"),
 })
