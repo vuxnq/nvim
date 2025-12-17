@@ -11,14 +11,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    require("plugins.colortheme"),
-    require("plugins.oil"),
-	require("plugins.bufferline"),
-	require("plugins.lualine"),
-	require("plugins.telescope"),
-	require("plugins.lsp"),
-	require("plugins.completion"),
+require("lazy").setup{
+    { import = "plugins" },
 
-    require("plugins.misc"),
-})
+    { "folke/which-key.nvim" },
+    { 'lewis6991/gitsigns.nvim' },
+    { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
+    { 'saghen/blink.indent' },
+}

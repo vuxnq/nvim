@@ -15,8 +15,8 @@ map("<C-s>", "<cmd>w <CR>", "Save", {"n", "i"})
 map("<Esc>", ":noh<CR>", "Clear highlights")
 map("<C-c>", ":%y+<CR>", "Copy everything")
 
-map("<leader>lw", "<cmd>set wrap!<CR>", "Toggle linewrap")
-map("<leader>ws", "<cmd>set list!<CR>", "Toggle whitespace")
+map("<leader>tl", "<cmd>set wrap!<CR>", "Toggle linewrap")
+map("<leader>tw", "<cmd>set list!<CR>", "Toggle whitespace")
 
 map("x", '"_x', "Ignore register")
 map("<", "<gv", "Stay in indent mode", "v")
@@ -39,3 +39,10 @@ map("<A-j>", ":m .+1<CR>", "Move line down")
 map("<A-k>", ":m .-2<CR>", "Move line up")
 map("<A-j>", ":m '>+1<CR>gv", "Move lines down", "v")
 map("<A-k>", ":m '<-2<CR>gv", "Move lines up", "v")
+
+-- lsp
+map("<leader>ld", ":lua vim.lsp.buf.definition()<CR>", "Go to definition")
+map("<leader>li", ":lua vim.lsp.buf.implementation()<CR>", "Go to implementation")
+map("K", ":lua vim.lsp.buf.hover()<CR>", "Hover")
+map("<leader>ln", ":lua vim.lsp.buf.rename()<CR>", "Rename")
+map("<leader>lr", ":lua vim.lsp.buf.references()<CR>", "Get references")
