@@ -5,5 +5,5 @@ return {
 
     { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
 
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = { scope = { enabled = false } } },
+    { 'saghen/blink.indent' },
 }
