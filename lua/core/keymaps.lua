@@ -46,3 +46,4 @@ map("<leader>li", ":lua vim.lsp.buf.implementation()<CR>", "Go to implementation
 map("K", ":lua vim.lsp.buf.hover()<CR>", "Hover")
 map("<leader>ln", ":lua vim.lsp.buf.rename()<CR>", "Rename")
 map("<leader>lr", ":lua vim.lsp.buf.references()<CR>", "Get references")
+map("<leader>lf", ":lua vim.lsp.buf.format()<CR>", "Format")
