@@ -40,6 +40,9 @@ map("<A-k>", ":m .-2<CR>", "Move line up")
 map("<A-j>", ":m '>+1<CR>gv", "Move lines down", "v")
 map("<A-k>", ":m '<-2<CR>gv", "Move lines up", "v")
 
+map("<S-CR>", "<Esc>o", "Insert line below", "i")
+map("<C-CR>", "<Esc><S-o>", "Insert line above", "i")
+
 -- lsp
 map("<leader>ld", ":lua vim.lsp.buf.definition()<CR>", "Go to definition")
 map("<leader>li", ":lua vim.lsp.buf.implementation()<CR>", "Go to implementation")

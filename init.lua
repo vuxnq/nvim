@@ -17,7 +17,7 @@ require("lazy").setup {
     { "folke/which-key.nvim" },
     { 'lewis6991/gitsigns.nvim' },
     { 'windwp/nvim-autopairs',   event = "InsertEnter", opts = {} },
-    { 'saghen/blink.indent' },
+    { 'saghen/blink.indent' }, -- TODO)) errors in md when scrolling fast
     { "lewis6991/satellite.nvim" },
 
     -- todo))
